@@ -27,7 +27,7 @@ exports.run = async (client, message, args) => {
       };
       let motivo = args.slice(1).join(' ');
       if(!motivo) return motivo = 'Sem motivo definido';
-      if(client[m.id].blacklist) {
+      if(client.db[m.id].blacklist) {
         let embed = new Discord.RichEmbed();
         embed.setColor(`RANDOM`);
         embed.setDescription('O membro já está na lista negra.\nps: caso deseje remove-lo da lista negra utilize: `c!whitelist @membro`');
