@@ -8,7 +8,7 @@ client.database = regdb;
 client.registrados = reg;
 client.db = db;
 
-let token = "";
+let token = process.env.TOKEN;
 let prefix = "c!";
 
 
