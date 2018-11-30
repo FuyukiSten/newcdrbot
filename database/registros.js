@@ -1,10 +1,10 @@
 const sql = require("sqlite");
-sql.open("./database/hentaiehmtbom.sql");
+sql.open("./database/regdatabase.sql");
 
-class registros {
+class RegisterValue {
 
     static checkDatabase() {
-        sql.run("CREATE TABLE IF NOT EXISTS registervalDatabase (username TEXT, userID TEXT, guildID TEXT, registers INTEGER)").catch(function(error) {
+        sql.run("CREATE TABLE IF NOT EXISTS registervalDatabase (username TEXT, userID TEXT, registers INTEGER)").catch(function(error) {
             console.error(error);
         });
     };
@@ -19,12 +19,12 @@ class registros {
         });
     };
 
-    static increaseregisters(userID, username, guildID, value = 1) {
+    static increaseregisters(userID, username, value = 1) {
         this.checkDatabase();
         this.checkUser(userID).then(function(result) {
             if (!result) {
-                sql.run("INSERT INTO registervalDatabase (username, userID, guildID, registers) VALUES (?, ?, ?, ?)", 
-                [username, guildID, userID, 1]).catch(error => console.error(error));
+                sql.run("INSERT INTO registervalDatabase (username, userID, registers) VALUES (?, ?, ?)", 
+                [username, userID, 1]).catch(error => console.error(error));
             } else {
                 sql.get(`SELECT * FROM registervalDatabase WHERE userID = "${userID}"`).then(function(row) {
                     const newregisters = row.registers += value;
@@ -36,7 +36,7 @@ class registros {
         });
     }; 
 
-    static decreaseregisters(userID, guildID, value = 1) {
+    static decreaseregisters(userID, value = 1) {
         this.checkDatabase();
         this.checkUser(userID).then(function(result) {
             if (result) {
@@ -47,8 +47,8 @@ class registros {
                     });
                 });
             } else {
-                sql.run("INSERT INTO registervalDatabase (username, userID, guildID, registers) VALUES (?, ?, ?, ?)", 
-                [username, userID, guildID, -1]).catch(error => console.error(error));
+                sql.run("INSERT INTO registervalDatabase (username, userID, registers) VALUES (?, ?, ?)", 
+                [username, userID, -1]).catch(error => console.error(error));
             };
         });
     };
@@ -62,4 +62,4 @@ class registros {
 
 };
 
-module.exports = registros;
+module.exports = RegisterValue;
