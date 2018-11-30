@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const fs = require('fs');
 const sql = require("sqlite");
-sql.open("./database/registrosdb.sql");
+sql.open("./database/hentaiehmtbom.sql");
 
 const moment = require('moment');
 exports.run = async (client, message, args) => {
