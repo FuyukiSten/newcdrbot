@@ -14,6 +14,7 @@ let prefix = "c!";
 
 client.on('ready', () => {
     console.log('Bot online !');
+regdb.checkDatabase();
 });
 
 client.on('message', async message => {
