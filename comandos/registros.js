@@ -14,7 +14,7 @@ exports.run = async (client, message, args) => {
         client.channels.get(message.channel.id).send(_e);
         return;
     }
-    let rUser = message.mentions.users.first() || client.users.get(args[0]) || message.author;
+     let rUser = message.guild.member(message.mentions.users.first() || client.users.get(args[0]) || message.author);
     let user = rUser.id;
     sql.get(`SELECT * FROM registervalDatabase WHERE userID = "${user}"`).then(function(row) {
     if(!row) return message.reply("Esse usuário não fez nenhum registro até o momento.");    
@@ -26,4 +26,5 @@ exports.run = async (client, message, args) => {
     embed.setThumbnail(message.author.avatarURL);
     client.channels.get(message.channel.id).send(embed);
 });
+}
 }
