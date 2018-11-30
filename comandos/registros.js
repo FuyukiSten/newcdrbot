@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const fs = require('fs');
 const sql = require("sqlite");
-sql.open("./database/hentaiehmtbom.sql");
+sql.open("./database/regdatabase.sql");
 
 const moment = require('moment');
 exports.run = async (client, message, args) => {
@@ -10,11 +10,11 @@ exports.run = async (client, message, args) => {
     {
         let _e = new Discord.RichEmbed();
         _e.setColor(0xff3232);
-        _e.setDescription(`${message.author}, você precisa ter o cargo <@&455796553291005992> para usar esse comando.`);
+        _e.setDescription(`${message.author}, você precisa ter o cargo <@&513187405319110669> para usar esse comando.`);
         client.channels.get(message.channel.id).send(_e);
         return;
     }
-     let rUser = message.guild.member(message.mentions.users.first() || client.users.get(args[0]) || message.author);
+    let rUser = message.guild.member(message.mentions.users.first() || client.users.get(args[0]) || message.author);
     let user = rUser.id;
     sql.get(`SELECT * FROM registervalDatabase WHERE userID = "${user}"`).then(function(row) {
     if(!row) return message.reply("Esse usuário não fez nenhum registro até o momento.");    
@@ -27,4 +27,3 @@ exports.run = async (client, message, args) => {
     client.channels.get(message.channel.id).send(embed);
 });
 }
-
