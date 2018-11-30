@@ -38,7 +38,7 @@ exports.run = async (client, message, args) => {
         A_2.addField('ID:', message.author.id);
         client.users.get(_m.id).send(A_2).catch(O_o=>{console.error(O_o)});
         _mr.registrado = true;
-        client.database.increaseregisters(message.author.id, message.author.username, 1);
+        client.database.increaseregisters(message.author.id, message.guild.id, message.author.username, 1);
         fs.writeFile("./database/registrados.json", JSON.stringify(client.registrados), (x) => {
             if (x) console.error(x)
           });
