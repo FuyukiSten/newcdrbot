@@ -27,4 +27,4 @@ exports.run = async (client, message, args) => {
     client.channels.get(message.channel.id).send(embed);
 });
 }
-}
+
