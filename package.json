@@ -1,0 +1,19 @@
+{
+  "name": "cdrmodbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "fs": "0.0.1-security",
+    "mal-scraper": "^2.4.5",
+    "snekfetch": "^4.0.4",
+    "sqlite": "^3.0.0"
+  }
+}
