@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
-const regdb = require("./database/regdatabase.js");
+const regdb = require("./database/regdatabase.js"); para const regdb = require("./database/registros.js");
 const reg = JSON.parse(fs.readFileSync("./database/registrados.json", "utf8"));
 const db = JSON.parse(fs.readFileSync("./database/blacklist.json", "utf8"));
 client.database = regdb;
