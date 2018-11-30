@@ -1,19 +1,24 @@
 {
-  "name": "cdrmodbot",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "caralho",
+  "version": "0.0.1",
+  "description": "discord bot",
+  "main": "node index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ."
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Random",
+  "license": "UNLICENSED",
   "dependencies": {
     "discord.js": "^11.4.2",
+    "enmap": "^4.3.3",
+    "express": "^4.16.4",
     "fs": "0.0.1-security",
-    "mal-scraper": "^2.4.5",
-    "snekfetch": "^4.0.4",
-    "sqlite": "^3.0.0"
+    "http": "0.0.0",
+    "moment": "^2.22.2",
+    "sqlite": "^3.0.0",
+    "sqlite3": "^4.0.4",
+    "random-puppy": "^1.1.0",
+    "snekfetch": "^4.0.4"
   }
 }
