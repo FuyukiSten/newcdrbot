@@ -1,5 +1,5 @@
 const sql = require("sqlite");
-sql.open("./database/registrosdb.sql");
+sql.open("./database/hentaiehmtbom.sql");
 
 class registros {
 
