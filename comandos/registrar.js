@@ -1,13 +1,12 @@
 const Discord = require('discord.js');
 const fs = require('fs');
-
 exports.run = async (client, message, args) => {
     // eu ia fazer comentarios sobre como funciona tudo aq mas, deu uma preguiça né
     if(!message.member.roles.some(r=>["Organizadores Especiais"].includes(r.name)) )
     {
-        let _e = new Discord.RichEmbed();
-        _e.setColor(0xff3232);
-        _e.setDescription(`${message.author}, você precisa ter o cargo <@&455796553291005992> para usar esse comando.`);
+        let _e = new Discord.RichEmbed(0xff3232);
+        _e.setColor();
+        _e.setDescription(`${message.author}, você precisa ter o cargo <@&513187405319110669> para usar esse comando.`);
         client.channels.get(message.channel.id).send(_e);
         return;
     }
@@ -38,7 +37,7 @@ exports.run = async (client, message, args) => {
         A_2.addField('ID:', message.author.id);
         client.users.get(_m.id).send(A_2).catch(O_o=>{console.error(O_o)});
         _mr.registrado = true;
-        client.database.increaseregisters(message.author.id, message.guild.id, message.author.username, 1);
+        client.database.increaseregisters(message.author.id, message.author.username, 1);
         fs.writeFile("./database/registrados.json", JSON.stringify(client.registrados), (x) => {
             if (x) console.error(x)
           });
